@@ -1,38 +1,21 @@
-.App {
-  text-align: center;
+
+.app{
+  background-color: black;
+  /* background: radial-gradient(circle at 50% 50%, #1a0a2e 0%, #0a0612 50%, #000000 100%); */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./fonts/Giflika-Regular.otf') ;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('./fonts/Quicksand_Book_Oblique.otf') ;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+blockquote{
+  font-family: 'CustomFont2', sans-serif;
 }
+.designer{
+  font-family: 'CustomFont', sans-serif;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

@@ -1,0 +1,301 @@
+import React, { useEffect, useRef, useState } from 'react';
+// Import Lenis (make sure you've installed it: npm install @studio-freight/lenis)
+import Lenis from '@studio-freight/lenis'
+import { transform } from 'framer-motion';
+
+const ScrollGallery = () => {
+  const containerRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const lenisRef = useRef(null);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    // Check if Lenis is available (either from import or CDN)
+    const initLenis = () => {
+      const LenisConstructor = window.Lenis; // Use from CDN for now
+
+      if (!LenisConstructor) {
+        console.warn('Lenis not loaded yet, using native scroll');
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return;
+      }
+
+      // Initialize Lenis
+      lenisRef.current = new LenisConstructor({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+        smoothTouch: false,
+        wheelMultiplier: 1,
+      });
+
+      // Lenis animation frame
+      function raf(time) {
+        lenisRef.current?.raf(time);
+        rafRef.current = requestAnimationFrame(raf);
+      }
+      rafRef.current = requestAnimationFrame(raf);
+
+      // Handle scroll with Lenis
+      lenisRef.current.on('scroll', handleScroll);
+
+      // Initial call
+      handleScroll();
+    };
+
+    // Try to initialize immediately if Lenis is already loaded
+    if (window.Lenis) {
+      initLenis();
+    } else {
+      // Load Lenis from CDN if not available
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js';
+      script.async = true;
+      script.onload = initLenis;
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      if (lenisRef.current) {
+        lenisRef.current.destroy();
+      }
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = (e) => {
+    if (!containerRef.current) return;
+
+    const container = containerRef.current;
+    const rect = container.getBoundingClientRect();
+    const containerHeight = container.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    const scrollStart = rect.top;
+    const scrollRange = containerHeight - windowHeight;
+    const progress = Math.max(0, Math.min(1, -scrollStart / scrollRange));
+
+    setScrollProgress(progress);
+
+    // Calculate current index based on scroll progress
+    const totalImages = images.length;
+    const activeIdx = Math.floor(progress * (totalImages - 1));
+    setCurrentIndex(Math.min(activeIdx, totalImages - 1));
+  };
+
+  const getLayerStyle = (index, totalLayers) => {
+    const progressPerImage = 1 / (totalLayers - 1);
+
+
+    // Calculate transition progress - this affects ALL visible elements at once
+  // Create a wider range for visible layers (1 full step before its actual range)
+  const visibleStart = (index - 2) * progressPerImage;
+  const visibleEnd = (index + 1) * progressPerImage;
+
+  let transitionProgress = 0;
+
+  if (scrollProgress >= visibleStart && scrollProgress < visibleEnd) {
+    // Smooth progress within visible window
+    transitionProgress = (scrollProgress - visibleStart) / (visibleEnd - visibleStart);
+    transitionProgress = Math.min(Math.max(transitionProgress, 0), 1);
+  } else if (scrollProgress >= visibleEnd) {
+    transitionProgress = 1;
+  }
+    const relativePos = index - currentIndex;
+
+    let scale = 0.7;
+    let translateZ = -400;
+    let opacity = 0;
+    let pointerEvents = "none";
+    let brightness = 0.8;
+
+    if (relativePos === 0) {
+      // FIRST (current) element: zooms in and fades out
+      scale = 0.2 + (transitionProgress * 0.8); // 1 → 1.8
+      translateZ = transitionProgress * 200; // 0 → 300
+      opacity = 1; // 1 → 0
+      brightness = 1;
+      pointerEvents = transitionProgress < 0.8 ? "auto" : "none";
+    } else if (relativePos === 1) {
+      // SECOND element: moves forward to become first
+      scale = 0.1 + (transitionProgress * 0.5); // 0.5 → 1
+      translateZ = -300 + (transitionProgress * 200); // -200 → 0
+      opacity = 0.9 + (transitionProgress * 0.1); // 0.9 → 1
+      brightness = 0.8;
+      pointerEvents = "auto";
+    } else if (relativePos === 2) {
+      // THIRD element: moves forward to become second
+      scale = 0.1 + (transitionProgress * 0.2); // 0.3 → 0.5
+      translateZ = -400 + (transitionProgress * 200); // -400 → -200
+      opacity = 0.7 + (transitionProgress * 0.2); // 0.7 → 0.9
+      pointerEvents = "auto";
+      brightness = 0.5;
+    } else if (relativePos === 3) {
+      // FOURTH element: appears from behind to become third
+      scale = 0.1 + (transitionProgress * 0.1); // 0.2 → 0.3
+      translateZ = -600 + (transitionProgress * 200); // -600 → -400
+      opacity = transitionProgress * 0.7; // 0 → 0.7
+      pointerEvents = "none";
+    } else if (relativePos < 0) {
+      // Already passed elements: hidden (pushed forward)
+      scale = 2;
+      translateZ = 800;
+      opacity = 0;
+    } else {
+      // Future elements: hidden behind
+      scale = 0.2;
+      translateZ = -600;
+      opacity = 0;
+    }
+    return {
+      transform: `translateZ(${translateZ}px) scale(${scale})`,
+      opacity,
+      filter: `brightness(${brightness})`,
+      zIndex: relativePos === 0 ? 30 : relativePos === 1 ? 20 : relativePos === 2 ? 10 : relativePos === 3 ? 5 : relativePos < 0 ? 0 : 1,
+      transition: "transform 0.4s ease-out, opacity 0.4s ease-out",
+      pointerEvents,
+    };
+  };
+
+  const images = [
+    {
+      title: "Urban Stories",
+      subtitle: "Photography",
+      imageUrl: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+    },
+    {
+      title: "Nature's Canvas",
+      subtitle: "Landscape",
+      imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+    },
+    {
+      title: "Modern Living",
+      subtitle: "Interior Design",
+      imageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+    },
+    {
+      title: "Coastal Vibes",
+      subtitle: "Seascape",
+      imageUrl: "https://images.unsplash.com/photo-1505142468610-359e7d316be0",
+    },
+    {
+      title: "Mountain Peak",
+      subtitle: "Adventure",
+      imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+    },
+    {
+      title: "City Lights",
+      subtitle: "Urban Photography",
+      imageUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b",
+    },
+    {
+      title: "Desert Dreams",
+      subtitle: "Exploration",
+      imageUrl: "https://images.unsplash.com/photo-1509316785289-025f5b846b35",
+    },
+    {
+      title: "Forest Path",
+      subtitle: "Nature",
+      imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+    },
+    {
+      title: "Arctic Beauty",
+      subtitle: "Winter Wonderland",
+      imageUrl: "https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22",
+    },
+    {
+      title: "Golden Hour",
+      subtitle: "Sunset Collection",
+      imageUrl: "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+    }
+  ];
+
+  const currentImage = images[currentIndex];
+
+  return (
+    <div className="bg-black">
+      {/* Hero Section */}
+      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-zinc-900 to-black">
+        <div className="text-center">
+          <h1 className="text-7xl md:text-9xl font-serif text-white mb-4">Portfolio</h1>
+          <p className="text-xl text-zinc-400 tracking-wider">Scroll to explore</p>
+        </div>
+      </div>
+
+      {/* Sticky 3D Scroll Container */}
+      <div
+        ref={containerRef}
+        className="relative"
+        style={{ height: `${images.length * 100}vh` }}
+      >
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {/* Background with current image blurred */}
+          <div
+            className="absolute inset-0 transition-all duration-700"
+            style={{
+              backgroundImage: `url(${currentImage.imageUrl}?w=1920&h=1080&fit=crop)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(40px) brightness(0.4)',
+            }}
+          />
+
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ perspective: '2000px', transformStyle: 'preserve-3d',
+  overflow: 'visible', perspectiveOrigin: 'center center' }}
+          >
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className="absolute w-full h-full"
+                style={getLayerStyle(index, images.length)}
+              >
+                <div className="relative w-full h-full flex items-center justify-center px-8 md:px-16 lg:px-24">
+                  <div className={`w-full flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                    <div className="flex flex-col items-center max-w-7xl">
+                      {/* Title Above Image */}
+                      <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 text-center">{image.title}</h2>
+                      <div className="flex-shrink-0 mb-0">
+                        <div className="relative w-80 h-96 md:w-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+                          <img
+                            src={`${image.imageUrl}?w=800&h=1000&fit=crop`}
+                            alt={image.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* End Section */}
+      <div className="h-screen flex items-center justify-center bg-gradient-to-t from-zinc-900 to-black">
+        <div className="text-center">
+          <h2 className="text-5xl md:text-7xl font-serif text-white mb-6">
+            Let's Work Together
+          </h2>
+          <button className="px-8 py-4 border border-white text-white hover:bg-white hover:text-black transition-all duration-300 text-lg tracking-wider">
+            GET IN TOUCH
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ScrollGallery;

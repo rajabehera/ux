@@ -1,0 +1,25 @@
+.work-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-list li {
+  margin-bottom: 18px;
+}
+
+.work-list a {
+  color: #4455a7;
+  font-size: 1.12rem;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 0;
+  display: inline-block;
+  border-bottom: 1px dashed #b9d2ff;
+  transition: border 0.18s, color 0.18s;
+}
+
+.work-list a:hover {
+  color: #417c35;
+  border-bottom: 2px solid #417c35;
+}

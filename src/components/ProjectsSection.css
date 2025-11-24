@@ -1,0 +1,42 @@
+.projects-section {
+  padding: 44px 10vw;
+  background: #fff;
+}
+
+.toggle-view {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 21px;
+}
+
+.toggle-view button {
+  background: #f2f2f2;
+  border: none;
+  color: #224466;
+  padding: 6px 20px;
+  font-weight: 600;
+  border-radius: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.toggle-view button:hover {
+  background: #d7e6fe;
+}
+
+.toggle-view span {
+  margin-left: auto;
+  color: #888;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.work-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 36px #eaf7ff44;
+}

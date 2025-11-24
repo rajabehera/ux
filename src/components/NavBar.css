@@ -1,0 +1,121 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+    position: sticky;
+  top: 0;
+  z-index: 40;
+  /* box-shadow: 0 4px 32px -18px #0002; */
+  
+  animation: fadeDown 900ms;
+}
+.navbar-item{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+@keyframes fadeDown {
+  0% {transform: translateY(-24px); opacity:0;}
+  100% {transform: translateY(0px); opacity:1;}
+}
+.navbar a {
+  color: #dddddd;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: #eeeeee;
+}
+@media (max-width: 700px) {
+  .navbar {
+    font-size: 0.98rem;
+    gap: 22px;
+    flex-wrap: wrap;
+    padding: 14px 0;
+  }
+}
+
+.navbar a.active {
+  color: #ffffff;
+  position: relative;
+}
+
+.navbar a.active:not(.navbar-logo)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Home Route */
+.nav-home {
+  background: transparent;
+  color: white;
+}
+
+/* Works Route */
+.nav-works {
+  background: white;
+  color: black;
+}
+
+/* About Route */
+.nav-about {
+  background: #000;
+  color: white;
+}
+
+/* Contact Route */
+.nav-contact {
+  background: #e91e63;
+  color: white;
+}
+
+/* Default fallback */
+/* .nav-default {
+  background: white;
+  color: black;
+} */
+.nav-default a{
+  color: #ffffff;
+}
+
+
+
+.scrolled {
+  /* Change to a solid background color (e.g., black or dark blue) */
+  background-color: transparent; 
+  /* Change text color to contrast (e.g., white) */
+  color: #292929;
+}
+
+/* Ensure the NavLink text color also changes */
+.scrolled a {
+  color: inherit;
+}
+
+/* Your other NavBar styles go here */
+/* ... */
+
+.scrolled2{
+  color: white;
+}

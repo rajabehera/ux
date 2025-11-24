@@ -1,0 +1,76 @@
+.animated-grid-section {
+  padding: 64px 0 80px 0;
+  position: relative;
+  background: linear-gradient(90deg, #fff 70%, #f2fbf9 100%);
+}
+
+.big-quote {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f1f43;
+  text-align: center;
+  margin-bottom: 58px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 48px;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid__itemm {
+  width: 240px;
+  height: 320px;
+  perspective: 900px;
+  overflow: hidden;
+}
+
+.grid__itemm-inner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  filter: brightness(57%);
+  transform: scale(0.72) rotateX(-26deg) translateY(-80px);
+  transition: all 0.8s cubic-bezier(.47,1.64,.41,.8);
+  box-shadow: 0 16px 40px #e7e7ee44;
+}
+.grid__itemm-inner {
+  transition: all 0.8s cubic-bezier(.47,1.64,.41,.8);
+}
+.animated-grid-section {
+  padding: 64px 0 80px 0;
+  position: relative;
+  transition: background 0.5s;
+  will-change: background;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 48px;
+  align-items: center;
+  justify-items: center;
+}
+
+.grid__itemm {
+  width: 240px;
+  height: 320px;
+  perspective: 900px; /* Needed for 3D effect */
+  overflow: hidden;
+}
+
+.grid__itemm-inner {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  transition: box-shadow 0.3s, filter 0.3s;
+  box-shadow: 0 16px 40px #e7e7ee44;
+  will-change: transform, filter;
+}
