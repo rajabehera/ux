@@ -165,7 +165,7 @@ const AboutSection = () => {
                           style={{
                             backgroundImage: `
                            radial-gradient( rgba(221, 0, 255, 0.01), rgba(0, 38, 255, 0.1)),
-                           url('../img/rb2.png')`,
+                           url('..ux/img/rb2.png')`,
                             backgroundSize: `cover`,
                             backgroundPosition: 'center'
                           }}

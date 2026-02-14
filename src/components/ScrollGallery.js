@@ -151,57 +151,57 @@ const handleLenisScroll = ({ scroll }) => {
     {
       title: "Trivedi Films",
       subtitle: "Website Development",
-      imageUrl: "../img/tf.png",
+      imageUrl: "..ux/img/tf.png",
     },
     {
       title: "SuDrives",
       subtitle: "Mobile App UI/UX Design",
-      imageUrl: "../img/sup.png",
+      imageUrl: "..ux/img/sup.png",
     },
     {
       title: "Seatrans Agencies",
       subtitle: "Website Development",
-      imageUrl: "../img/st.png",
+      imageUrl: "..ux/img/st.png",
     },
     {
       title: "PickTailor",
       subtitle: "Mobile App UI/UX Design",
-      imageUrl: "../img/Pickta.png",
+      imageUrl: "..ux/img/Pickta.png",
     },
     {
       title: "Seatech Digital",
       subtitle: "Website Development",
-      imageUrl: "../img/std.png",
+      imageUrl: "..ux/img/std.png",
     },
     {
       title: "Shayoag",
       subtitle: "Mobile App UI/UX Design",
-      imageUrl: "../img/shayoag.png",
+      imageUrl: "..ux/img/shayoag.png",
     },
     {
       title: "SuDrives",
       subtitle: "UI/UX Design & Website Development",
-      imageUrl: "../img/sd.png",
+      imageUrl: "..ux/img/sd.png",
     },
     {
       title: "Optimus",
       subtitle: "ServiceNow App UI/UX Design",
-      imageUrl: "../img/opti.png",
+      imageUrl: "..ux/img/opti.png",
     },
     {
       title: "SellSpark",
       subtitle: "UI/UX Design & Website Development",
-      imageUrl: "../img/sp.png",
+      imageUrl: "..ux/img/sp.png",
     },
     {
       title: "SuDrives",
       subtitle: "Mobile App UI/UX Design",
-      imageUrl: "../img/sduser.png",
+      imageUrl: "..ux/img/sduser.png",
     },
     {
       title: "Maa Ashram",
       subtitle: "Mobile App UI/UX Design",
-      imageUrl: "../img/maa.png",
+      imageUrl: "..ux/img/maa.png",
     }
   ];
 

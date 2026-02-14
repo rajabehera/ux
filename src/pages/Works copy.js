@@ -17,77 +17,77 @@ const ScrollCarousel = () => {
       id: 1,
       name: 'Trivedi Films',
       subtitle: 'Web Development',
-      image: '../img/tf.png',
+      image: '..ux/img/tf.png',
       link: 'www.trivedifilms.com'
     },
     {
       id: 2,
       name: 'SuDrives Pvt. Ltd.',
       subtitle: 'Mobile App UI/UX Design',
-      image: '../img/sup.png',
+      image: '..ux/img/sup.png',
       link: '/'
     },
     {
       id: 3,
       name: 'Seatrans Agencies Pvt. Ltd.',
       subtitle: 'Web Development',
-      image: '../img/st.png',
+      image: '..ux/img/st.png',
       link: 'www.seatransagencies.com'
     },
     {
       id: 4,
       name: 'PickTailor',
       subtitle: 'Mobile App UI/UX Design',
-      image: '../img/Pickta.png',
+      image: '..ux/img/Pickta.png',
       link: '/'
     },
     {
       id: 5,
       name: 'Seatech Digital Pvt. Ltd.',
       subtitle: 'Web Development',
-      image: '../img/std.png',
+      image: '..ux/img/std.png',
       link: 'www.seatechdigital.com'
     },
     {
       id: 6,
       name: 'Shayoag',
       subtitle: 'Mobile App UI/UX Design',
-      image: '../img/shayoag.png',
+      image: '..ux/img/shayoag.png',
       link: '/'
     },
     {
       id: 7,
       name: 'SuDrives Pvt. Ltd.',
       subtitle: 'UI/UX Design & Website Development',
-      image: '../img/sd.png',
+      image: '..ux/img/sd.png',
       link: '/'
     },
     {
       id: 8,
       name: 'Optimus',
       subtitle: 'ServiceNow App UI/UX Design',
-      image: '../img/opti.png',
+      image: '..ux/img/opti.png',
       link: '/'
     },
     {
       id: 9,
       name: 'SellSpark',
       subtitle: 'UI/UX Design & Web Development',
-      image: '../img/sp.png',
+      image: '..ux/img/sp.png',
       link: 'www.sellspark.in'
     },
     {
       id: 10,
       name: 'SuDrives Pvt. Ltd.',
       subtitle: 'Mobile App UI/UX Design',
-      image: '../img/sduser.png',
+      image: '..ux/img/sduser.png',
       link: '/'
     },
     {
       id: 11,
       name: 'Maa Ashram',
       subtitle: 'Mobile App UI/UX Design',
-      image: '../img/maa.png',
+      image: '..ux/img/maa.png',
       link: '/'
     }
   ];

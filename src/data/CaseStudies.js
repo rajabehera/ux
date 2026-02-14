@@ -22,7 +22,7 @@ export const caseStudiesData = [
         icon: "bi-bullseye",
         title: "The Challenge",
         description: "Customers needed a streamlined, reliable platform to book rides effortlessly, track their trips in real-time, and manage payments seamlessly while ensuring safety and transparency throughout the journey.",
-        image:'../img/sd.png'
+        image:'..ux/img/sd.png'
       },
       solution: {
         icon: "bi-lightbulb",
@@ -42,17 +42,17 @@ export const caseStudiesData = [
     },
     screenshots: [
       {
-        image: "../img/sd.png",
+        image: "..ux/img/sd.png",
         label: "Home & Ride Booking",
         size: "medium"
       },
       {
-        image: "../img/sudrives-user.png",
+        image: "..ux/img/sudrives-user.png",
         label: "Real-Time Tracking",
         size: "wide"
       },
       {
-        image: "../img/sudrives-user-1.png",
+        image: "..ux/img/sudrives-user-1.png",
         label: "Thank you",
         size: "narrow"
       }
@@ -61,7 +61,7 @@ export const caseStudiesData = [
       {
         icon: "bi-geo-alt",
         title: "Ride Booking",
-          image: "../img/sd.png",
+          image: "..ux/img/sd.png",
         description: "Straightforward and efficient ride booking process ensuring users can quickly arrange transportation with complete transparency and safety information.",
         subFeatures: [
           {
@@ -79,7 +79,7 @@ export const caseStudiesData = [
       {
         icon: "bi-radar",
         title: "Real-Time Tracking",
-        image: "../img/portfolio/sudrives-user.png",
+        image: "..ux/img/portfolio/sudrives-user.png",
         description: "Comprehensive real-time tracking from driver assignment to destination arrival, providing continuous visibility and peace of mind throughout the journey.",
         subFeatures: [
           {
@@ -97,7 +97,7 @@ export const caseStudiesData = [
       {
         icon: "bi-credit-card",
         title: "Payment Integration",
-        image: "../img/portfolio/sudrives-user-1.png",
+        image: "..ux/img/portfolio/sudrives-user-1.png",
         description: "Simplified payment processing with transparent fare calculations and multiple payment options for maximum convenience and flexibility.",
         subFeatures: [
           {
@@ -120,7 +120,7 @@ export const caseStudiesData = [
       {
         icon: "bi-person-circle",
         title: "User Profile Management",
-        image: "../img/portfolio/sudrives-user-2.png",
+        image: "..ux/img/portfolio/sudrives-user-2.png",
         description: "Comprehensive profile management system allowing users to maintain their information and access complete ride history for reference and record-keeping.",
         subFeatures: [
           {
@@ -228,17 +228,17 @@ export const caseStudiesData = [
     },
     screenshots: [
       {
-        image: "assets/img/portfolio/shayoag-1.png",
+        image: "assetsux/img/portfolio/shayoag-1.png",
         label: "LogIn",
         size: "large"
       },
       {
-        image: "assets/img/portfolio/shayoag-2.png",
+        image: "assetsux/img/portfolio/shayoag-2.png",
         label: "Service Selection",
         size: "medium"
       },
       {
-        image: "assets/img/portfolio/shayoag-3.png",
+        image: "assetsux/img/portfolio/shayoag-3.png",
         label: "Diagnostics Booking",
         size: "medium"
       }
@@ -392,17 +392,17 @@ export const caseStudiesData = [
     },
     screenshots: [
       {
-        src: "assets/img/portfolio/sudrives-app-1.png",
+        src: "assetsux/img/portfolio/sudrives-app-1.png",
         alt: "SuDrives App Ride Creation",
         label: "Ride Creation & Management"
       },
       {
-        src: "assets/img/portfolio/sudrives-app-2.png",
+        src: "assetsux/img/portfolio/sudrives-app-2.png",
         alt: "SuDrives App Dashboard",
         label: "Dashboard & Status Management"
       },
       {
-        src: "assets/img/portfolio/sudrives-app.png",
+        src: "assetsux/img/portfolio/sudrives-app.png",
         alt: "SuDrives App Wallet",
         label: "Onboarding"
       }

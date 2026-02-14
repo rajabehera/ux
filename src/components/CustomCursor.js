@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import './CustomCursor.css';
 export default function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -8,6 +9,7 @@ export default function CustomCursor() {
   const [linkWidth, setLinkWidth] = useState(55);
   const [rotation, setRotation] = useState(0);
   const currentLinkRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const move = (e) => {
@@ -63,7 +65,7 @@ export default function CustomCursor() {
         h1.removeEventListener("mouseleave", handleH1Leave);
       });
     };
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleMagneticElement = (e) => {
@@ -89,7 +91,7 @@ export default function CustomCursor() {
         el.removeEventListener("mouseleave", resetMagneticElement);
       });
     };
-  }, []);
+  }, [location.pathname]);
 
   // Rotation animation for H1 hover
   useEffect(() => {

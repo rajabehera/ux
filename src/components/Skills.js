@@ -95,7 +95,8 @@ const SkillsSection = () => {
               <div 
                 key={`dev-${index}`}
                 className="flex-shrink-0 relative group flex items-center justify-center"
-                style={{ width: '500px', height: '100vh' }}
+                style={{ width: '500px', height: '100vh',
+                              opacity: `${(scrollProgress) * (allSkills.length + 2) > index ? 1 : 0}`, transition: 'opacity 0.5s ease-in-out' }}
               >
                 <div className="relative" style={{ width: '400px', height: '500px' }}>
                   {/* Card border */}
@@ -168,7 +169,7 @@ const SkillsSection = () => {
                             className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out`}
                             style={{
                               width: `${(scrollProgress - 0.009) * (allSkills.length + 2) > index ? skill.level : 0}%`,
-                              boxShadow: `0 0 20px ${skill.accent}80`
+                              boxShadow: `0 0 20px ${skill.accent}80`,
                             }}
                           />
                         </div>

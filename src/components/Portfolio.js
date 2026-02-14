@@ -185,22 +185,22 @@ const Gallery3D = ({ scrollY }) => {
   const [localScrollProgress, setLocalScrollProgress] = useState(0);
 
   const images = [
-    '../img/logo/claude-ai-icon.svg',
-    '../img/logo/github-mark-white.svg',
-    '../img/logo/javascript-original.svg',
-    '../img/logo/mysql-original.svg',
-    '../img/logo/nextjs-original.svg',
-    '../img/logo/react-original.svg',
-    '../img/logo/nodejs-original.svg',
-    '../img/logo/Bootstrap_logo.svg',
-    '../img/logo/expressjs.svg',
-    '../img/logo/tailwindcss-mark.d52e9897.svg',
-    '../img/logo/threejs-original.svg',
-    '../img/logo/greensock-gsap-icon-seeklogo.svg',
-    '../img/logo/framer-motion-seeklogo.svg',
-    '../img/logo/chatgpt-icon.svg',
-    '../img/logo/adobe-illustrator-cc-3.svg',
-    '../img/logo/icon full color.svg',
+    '..ux/img/logo/claude-ai-icon.svg',
+    '..ux/img/logo/github-mark-white.svg',
+    '..ux/img/logo/javascript-original.svg',
+    '..ux/img/logo/mysql-original.svg',
+    '..ux/img/logo/nextjs-original.svg',
+    '..ux/img/logo/react-original.svg',
+    '..ux/img/logo/nodejs-original.svg',
+    '..ux/img/logo/Bootstrap_logo.svg',
+    '..ux/img/logo/expressjs.svg',
+    '..ux/img/logo/tailwindcss-mark.d52e9897.svg',
+    '..ux/img/logo/threejs-original.svg',
+    '..ux/img/logo/greensock-gsap-icon-seeklogo.svg',
+    '..ux/img/logo/framer-motion-seeklogo.svg',
+    '..ux/img/logo/chatgpt-icon.svg',
+    '..ux/img/logo/adobe-illustrator-cc-3.svg',
+    '..ux/img/logo/icon full color.svg',
   ];
 
   const randomFactors = useMemo(

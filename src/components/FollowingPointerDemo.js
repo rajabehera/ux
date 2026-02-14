@@ -20,7 +20,7 @@ export default function FollowingPointerDemo() {
                           style={{
                             backgroundImage: `
                            radial-gradient( rgba(221, 0, 255, 0.01), rgba(0, 38, 255, 0.1)),
-                           url('../img/rb2.png')`,
+                           url('..ux/img/rb2.png')`,
                             backgroundSize: `cover`,
                             backgroundPosition: 'center'
                           }}
@@ -47,8 +47,8 @@ const blogContent = {
   title: "UX Engineer",
   description:
     "King",
-  image: "../img/rb.png",
-  authorAvatar: "../img/rb.png",
+  image: "..ux/img/rb.png",
+  authorAvatar: "..ux/img/rb.png",
 };
 
 const TitleComponent = ({

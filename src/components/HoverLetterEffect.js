@@ -12,7 +12,8 @@ export default function HoverLetterEffect({ scrollY }) {
         className="text-7xl md:text-9xl font-bold my-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent designer px-10"
         style={{
           textShadow: '0 0 80px rgba(168, 85, 247, 0.4)',
-          transform: `perspective(1000px) rotateX(${scrollY * 0.05}deg)`
+          transform: `perspective(1000px) rotateX(${scrollY * 0.05}deg)`,
+          transition: 'transform 0.3s ease-in-out',
         }}
       >
       {text.split('').map((char, index) => (
@@ -27,6 +28,7 @@ export default function HoverLetterEffect({ scrollY }) {
       transform: hoveredIndex === index 
         ? 'skew(-20deg, 5deg) scale(1.1)' 
         : 'skew(0deg, 0deg) scale(1)',
+        transition: 'all 0.3s ease-in-out',
       
     
       
