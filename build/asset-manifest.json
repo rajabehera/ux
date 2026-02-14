@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ux/static/css/main.dbe05042.css",
+    "main.js": "/ux/static/js/main.e2c7531b.js",
+    "static/js/453.b09332cd.chunk.js": "/ux/static/js/453.b09332cd.chunk.js",
+    "static/media/Quicksand_Book_Oblique.otf": "/ux/static/media/Quicksand_Book_Oblique.3424917a0bde8f5f9eeb.otf",
+    "static/media/Giflika-Regular.otf": "/ux/static/media/Giflika-Regular.bb0f613a58cf1f1851d4.otf",
+    "index.html": "/ux/index.html",
+    "main.dbe05042.css.map": "/ux/static/css/main.dbe05042.css.map",
+    "main.e2c7531b.js.map": "/ux/static/js/main.e2c7531b.js.map",
+    "453.b09332cd.chunk.js.map": "/ux/static/js/453.b09332cd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbe05042.css",
+    "static/js/main.e2c7531b.js"
+  ]
+}
